@@ -11,5 +11,9 @@
 <img align="center" alt="GIF" src="https://github.com/DJJamsran/images/blob/main/snp1.png" width="750"/>
 
 ### Viz 2 - A crude version of the boxplot function, an example output is shown 🚀✨
- - Use a package **IRIS** 📈
+ - Use a built-in dataset **IRIS** 📈
 <img align="center" alt="GIF" src="https://github.com/DJJamsran/images/blob/main/snp2.png" width="750"/>
+
+### Viz 3 - R output for the plot is a single graph 🚀✨
+- Use a built-in dataset **mtcars** 📊
+<img align="center" alt="GIF" src="https://github.com/DJJamsran/images/blob/main/snp3.png" width="750"/>
