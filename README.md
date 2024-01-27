@@ -8,7 +8,7 @@
 
 ### Viz 1 - let's cook up some code to reproduce that visualization below! 🚀✨
  - Use a dataset **winequality-red.csv** 📊
-<img align="center" alt="GIF" src="https://github.com/DJJamsran/images/blob/main/snp1.png" width="750"/>
+<img align="center" alt="GIF" src="https://github.com/DJJamsran/images/blob/main/snp1.png" width="850"/>
 
 ### Viz 2 - A crude version of the boxplot function, an example output is shown 🚀✨
  - Use a built-in dataset **IRIS** 📈
