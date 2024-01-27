@@ -1,106 +1,31 @@
-Redwine <- read.csv("file path", sep = ";")
-head(Redwine)
-#Creating a boxplot shows alcohol versus each wine quality
-boxplot(alcohol ~ quality, data = Redwine, horizontal = TRUE,
-        main = "Alcohol VS Quality",
-        col = 2:8, xlab = "Alcohol",  ylab = "Quality")
-#Creating a boxplot shows residualsugar versus each wine quality
-boxplot(residual.sugar ~ quality, data = Redwine, horizontal = TRUE,
-        main = "Resudual.Sugar VS Quality",
-        col = 2:8, xlab = "Resudual.Sugar",  ylab = "Quality", ylim = c(1,6))
-#Creating a boxplot shows density versus each wine quality
-boxplot(density ~ quality, data = Redwine, horizontal = TRUE,
-        main = "Density VS Quality",
-        col = 2:8, xlab = "Density",  ylab = "Quality")
+#(iii)
+install.packages("mtcars")
+#Splitting the plot to 2 rows 
+par(mfrow = c(1,2))
 
-#(ii)
-#visualization.
-quality <- sort.int(unique(Redwine$quality))
-quality
+#Plotting the first graph "HP = f(Disp, Carbs)"
+plot(mtcars$disp, mtcars$hp, pch = as.character(mtcars$carb), 
+     xlab = "Displacement (Disp) HP as function of Disp & Carbs", 
+     ylab = "Howerpower (HP)",
+     main = "HP = f(Disp, Carbs)", col = mtcars$carb,
+     xlim = c(100,400))
 
-m_all <- function(x) {
-  #Computing all means for all variables
-  m1 <- abs(aggregate(log(Redwine$fixed.acidity, base = 10), list(Quality = Redwine$quality), mean))
-  m2 <- abs(aggregate(log(Redwine$volatile.acidity, base = 10), list(Quality = Redwine$quality), mean))
-  m3 <- abs(aggregate(log(Redwine$citric.acid, base = 10), list(Quality = Redwine$quality), mean))
-  m4 <- abs(aggregate(log(Redwine$residual.sugar, base = 10), list(Quality = Redwine$quality), mean))
-  m5 <- abs(aggregate(log(Redwine$chlorides, base = 10), list(Quality = Redwine$quality), mean))
-  m6 <- abs(aggregate(log(Redwine$free.sulfur.dioxide, base = 10), list(Quality = Redwine$quality), mean))
-  m7 <- abs(aggregate(log(Redwine$total.sulfur.dioxide, base = 10), list(Quality = Redwine$quality), mean))
-  m8 <- abs(aggregate(log(Redwine$density, base = 10), list(Quality = Redwine$quality), mean))
-  m9 <- abs(aggregate(log(Redwine$pH, base = 10), list(Quality = Redwine$quality), mean))
-  m10 <-abs(aggregate(log(Redwine$sulphates, base = 10), list(Quality = Redwine$quality), mean))
-  m11 <-abs(aggregate(log(Redwine$alcohol, base = 10), list(Quality = Redwine$quality), mean))
-  
-  #Creating table on the outcome of means by using data.frame
-  mean_data <- data.frame(Quality = quality,
-                          fixed.acidity = m1$x,
-                          volatile.acidity = m2$x,
-                          citric.acid = m3$x,
-                          residual.sugar = m4$x,
-                          chlorides = m5$x,
-                          free.sulfur.dioxide = m6$x,
-                          total.sulfur.dioxid = m7$x,
-                          density = m8$x,
-                          pH = m9$x,
-                          sulphates = m10$x,
-                          alcohol = m11$x)
-  return(mean_data)
-}
-df <- m_all(Redwine)
-print(df)
+#Setting up the legend 
+carbs <- sort(unique(mtcars$carb))
+legend("topleft", legend = carbs,  
+       title = "Carbs", cex = 0.6, title.col = "Black",
+       text.col = carbs)
 
-#Note: In the citric.acid, there are "inf" displayed. 
-#In order to create the given graphic, we need to adjust "inf" components for
-# c(0.1, 0.2, 0.4, 0.5)
-df[[4]][1] <- 0.1
-df[[4]][2] <- 0.2
-df[[4]][3] <- 0.3
-df[[4]][4] <- 0.4
-df[[4]][5] <- 0.5
-print(df)
+#Plotting the second graph "HP = f(Disp, Cyls)"
+plot(mtcars$disp, mtcars$hp, pch = as.character(mtcars$cyl), 
+     xlab = "Displacement (Disp)
+     HP as function of Disp & Cyls", 
+     ylab = "Howerpower (HP)",
+     main = "HP = f(Disp, Cyls)", col = mtcars$cyl,
+     xlim = c(100,400))
 
-#Plotting the visualization 
-plot(df$Quality, df$fixed.acidity, col = "purple", ylim = c(0,2), type = "o",
-     xlab = "Quality", ylab = "Wine Variable(log)", xlim = c(3,9),
-     main = "Mean of Wine Variable versus Quality", cex.main = 0.9 )
-
-#adding lines and points with given colors 
-lines(df$Quality, df$volatile.acidity, type ="l",col = "green", 
-      {points(df$Quality, df$volatile.acidity, pch = 2, col= "green")})
-
-lines(df$Quality, df$citric.acid, type ="l",col = "blue", 
-      {points(df$Quality, df$citric.acid, pch = 8, col= "blue")})
-
-lines(df$Quality, df$residual.sugar, type ="l",col = "cyan", 
-      {points(df$Quality, df$residual.sugar, pch = 3, col= "cyan")})
-
-lines(df$Quality, df$chlorides, type ="l",col = "brown", 
-      {points(df$Quality, df$chlorides, pch = 10, col= "brown")})
-
-lines(df$Quality, df$free.sulfur.dioxide, type ="l",col = "gold", 
-      {points(df$Quality, df$free.sulfur.dioxide, pch = 9, col= "gold")})
-
-lines(df$Quality, df$total.sulfur.dioxid, type ="l",col = "black", 
-      {points(df$Quality, df$total.sulfur.dioxid, pch = 14, col= "black")})
-
-lines(df$Quality, df$density, type ="l",col = "red", 
-      {points(df$Quality, df$density, pch = 5, col= "red")})
-
-lines(df$Quality, df$pH, type ="l",col = "maroon", 
-      {points(df$Quality, df$pH, pch = 16, col= "maroon")})
-
-lines(df$Quality, df$sulphates, type ="l",col = "grey", 
-      {points(df$Quality, df$sulphates, pch = 12, col= "grey")})
-
-lines(df$Quality, df$alcohol, type ="l",col = "deeppink", 
-      {points(df$Quality, df$alcohol, pch = 1, col= "deeppink")})
-variables <- unique(colnames(Redwine))
-
-#Formatting legend
-legend("topright", legend = variables,  
-       title = "Variables", cex = 0.5, title.col = "Black",
-       text.col = c("purple", "green", "blue","cyan", "brown", "gold", "black",
-        "red", "maroon", "grey", "deeppink"),pch = c(1,2,8,3,10,9, 14,5,16,12,1), 
-        col = c("purple", "green", "blue","cyan", "brown", "gold", "black",
-                    "red", "maroon", "grey", "deeppink"))
+#Setting up the legend 
+cyls <- sort(unique(mtcars$cyl))
+legend("topleft", legend = cyls,  
+       title = "Cyls", cex = 0.6, title.col = "Black",
+       text.col = cyls
