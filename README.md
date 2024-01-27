@@ -1,4 +1,7 @@
-<img align="center" alt="GIF" src="https://github.com/DJJamsran/images/blob/main/giphy.gif" width="1000"/>
+<p>
+  <h1 align="left"><b>Hi Coders!👋,</b></h1>
+</p>
+<img align="center" alt="GIF" src="https://github.com/DJJamsran/images/blob/main/giphy.gif" width="800"/>
 
 
 
