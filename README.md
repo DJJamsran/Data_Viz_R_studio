@@ -1,4 +1,4 @@
-[<img src="https://raw.githubusercontent.com/Raymo111/Raymo111/master/intro.gif" alt="👋 Hi there! It is (R(Studio|Data Viz)|)" title="👋 Hi there! It is (R(Studio|Data Viz)|)"/>
+[<img src="https://raw.githubusercontent.com/Raymo111/Raymo111/master/intro.gif" alt="👋 Hi there! It is (R(Studio|Data Viz)|)" title="👋 Hi there! It is (R(Studio|Data Viz)|)"/>]
 
 
 
