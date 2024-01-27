@@ -1,1 +1,32 @@
+#In the grap, y axis is ranged from 0.6 to 1.2, and a line is lied approx in the 
+#middle
 
+#Setting variables
+d <- 0.9
+x <- seq(from = 4.3, to = 5, by = 0.1)
+y <- rep(d, length(x))
+x1 <- seq(from = 5.1, to = 5.7, by = 0.1)
+y1 <- rep(d, length(x1))
+x2 <- seq(from = 5.8, to = 6.3, by = 0.1)
+y2 <- rep(d, length(x2))
+x3 <- seq(from = 6.4, to = 7.4, by = 0.1)
+y3 <- rep(d, length(x3))
+x4 <- c(7.6, 7.7)
+y4 <- rep(d, length(x4))
+x5 <- 7.9
+y5 <- rep(d, length(x5))
+
+#Plotting the visualization 
+plot(x,y, pch=9, col = "red", xlim = c(4.5,8), ylim = c(1.2, 0.6),
+           axes = FALSE, frame.plot = TRUE)
+
+#Setting axis locations 
+axis(3, col = "black", lty = 2, lwd = 0.5)
+axis(2, col = "black", lty = 2, lwd = 0.5)
+
+#Adding points on the plot
+points(x1, y1, col= "green", pch=9)
+points(x2, y2, col= "blue", pch=9)
+points(x3, y3, col= "cyan", pch=9)
+points(x4, y4, col= "cyan", pch=9)
+points(x5, y5, col= "cyan", pch=9)
