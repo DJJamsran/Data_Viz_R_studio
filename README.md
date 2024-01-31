@@ -1,7 +1,7 @@
 <p>
   <h1 align="left"><b>Hi Coders!👋,</b></h1>
 </p>
-<img align="center" alt="GIF" src="https://github.com/DJJamsran/images/blob/main/giphy" width="750"/>
+<img align="center" alt="GIF" src="https://github.com/DJJamsran/images/blob/main/giphy.gif" width="750"/>
 
 ### Let's create awesome data visiualization on Rstudio 
 <a target="_blank" href="https://www.rstudio.com/">
